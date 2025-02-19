@@ -83,7 +83,7 @@ func main() {
 		}
 	}	
 	if !flag{
-		fmt.Println("No file is greater than 100 MB")
+		fmt.Printf("No file is greater than %v MB",size)
 	}
 }
 
