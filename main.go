@@ -43,9 +43,12 @@ func scanDirectory(dir string) ([]FileInfo, error) {
 
 func main() {
 
+	var size int64
+
 	//by default here pwd is used to scan
 	dir:=flag.String("dir", ".", "Directory path to analyze")
 	help:=flag.Bool("help",false,"by default PWD will be used as dir path")
+	flag.Int64Var(&size,"size",100,"filter with file size")
 	flag.Parse()
 
 	if *help{
@@ -74,7 +77,7 @@ func main() {
 	flag:=false
 	for _, file := range files {
 		//greater then 100MB can be shown as large files
-		if file.Size > 100*1024*1024 { 
+		if file.Size > size*1024*1024 { 
 			fmt.Printf("%s - %.2f MB - last usage at: %v\n", file.Path, float64(file.Size)/1024/1024,file.lastusage)
 			flag=true
 		}
