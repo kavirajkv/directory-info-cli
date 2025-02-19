@@ -54,7 +54,7 @@ func main() {
 	}
 
 
-	usage, err := disk.Usage(dir)
+	usage, err := disk.Usage(*dir)
 	if err != nil {
 		log.Fatalf("Error getting disk usage: %v", err)
 	}
@@ -62,7 +62,7 @@ func main() {
 	fmt.Printf("Total disk usage: %.2f GB\n", float64(usage.Used)/1024/1024/1024)
 
 
-	fmt.Printf("Scanning directory: %s\n", dir)
+	fmt.Printf("Scanning directory: %s\n", *dir)
 	files, err := scanDirectory(*dir)
 	if err != nil {
 		log.Fatalf("Error scanning directory: %v", err)
@@ -76,6 +76,6 @@ func main() {
 		if file.Size > 100*1024*1024 { 
 			fmt.Printf("%s - %.2f MB - last usage at: %v", file.Path, float64(file.Size)/1024/1024,file.lastusage)
 		}
-	}
+	}	
 }
 

@@ -5,6 +5,6 @@ clean:
 	rm -rf ./dirscan
 
 commit:
-	git add .; \
+	git add .
 	@read -p "Enter commit message: " message; \
 	git commit -m "$$message"
