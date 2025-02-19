@@ -13,3 +13,7 @@ Use this option to analysize the directory
 > -help
 
 To get help to use the tool
+
+> -size=100 //any size in MB
+
+To filter large files based on given size
