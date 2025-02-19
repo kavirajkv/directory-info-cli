@@ -1,5 +1,5 @@
 build:
-	go build -0 dirscan
+	go build -o dirscan
 
 clean:
 	rm -rf ./dirscan
